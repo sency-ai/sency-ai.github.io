@@ -1,18 +1,109 @@
-<!-- ios.html -->
-<h1>smkit-ui-ios-demo</h1>
-<h2>Table of Contents</h2>
-<ul>
-    <li><a href="#inst">Installation</a></li>
-    <li><a href="#setup">Setup</a></li>
-    <li><a href="#conf">Configure</a></li>
-    <li><a href="#start">Start</a></li>
-    <li><a href="#feedback">Excluding Feedback</a></li>
-    <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/DataTypes.md" target="_blank">Data</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
 
-<h2 id="inst">1. Installation</h2>
-<h3>Cocoapods</h3>
-<pre><code>
+        h1, h2, h3 {
+            color: #1c1c1e;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        pre {
+            background-color: #2b2b2d;
+            padding: 15px;
+            border-radius: 5px;
+            color: #f8f8f2;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        pre code {
+            font-family: Consolas, "Courier New", monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4a4a4c;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .copy-btn:hover {
+            background-color: #3a3a3c;
+        }
+
+        .note {
+            background-color: #f0f8ff;
+            border-left: 5px solid #007aff;
+            padding: 10px 20px;
+            margin: 20px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(codeBlock).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>smkit-ui-ios-demo</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#inst">Installation</a></li>
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#conf">Configure</a></li>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#feedback">Excluding Feedback</a></li>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/DataTypes.md" target="_blank">Data</a></li>
+    </ul>
+
+    <h2 id="inst">1. Installation</h2>
+    <h3>Cocoapods</h3>
+    <pre><code>
 // [1] add the source to the top of your Podfile.
 source 'https://bitbucket.org/sencyai/ios_sdks_release.git'
 source 'https://github.com/CocoaPods/Specs.git'
@@ -33,20 +124,22 @@ post_install do |installer|
     end
   end
 end
-</code></pre>
+    </code></pre>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 
-<h3>SPM</h3>
-<p>Coming soon</p>
+    <h3>SPM</h3>
+    <p>Coming soon</p>
 
-<h2 id="setup">2. Setup</h2>
-<p>Add camera permission request to <code>Info.plist</code></p>
-<pre><code>
+    <h2 id="setup">2. Setup</h2>
+    <p>Add camera permission request to <code>Info.plist</code></p>
+    <pre><code>
 <key>NSCameraUsageDescription</key>
 <string>Camera access is needed</string>
-</code></pre>
+    </code></pre>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 
-<h2 id="conf">3. Configure</h2>
-<pre><code>
+    <h2 id="conf">3. Configure</h2>
+    <pre><code>
 SMKitUIModel.configure(authKey: "YOUR_KEY") {
     // The configuration was successful
     // Your Code
@@ -54,20 +147,21 @@ SMKitUIModel.configure(authKey: "YOUR_KEY") {
     // The configuration failed with error
     // Your Code
 }
-</code></pre>
-<p>To reduce wait time we recommend to call <code>configure</code> on app launch.</p>
-<p><strong>⚠️ SMKitUI will not work if you don't first call configure.</strong></p>
+    </code></pre>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <p>To reduce wait time we recommend to call <code>configure</code> on app launch.</p>
+    <p><strong>⚠️ SMKitUI will not work if you don't first call configure.</strong></p>
 
-<h2 id="start">4. Start</h2>
-<ul>
-    <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/Assessment.md" target="_blank">Start Assessment</a></li>
-    <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/Workout.md" target="_blank">Start Workout</a></li>
-    <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/CustomizedAssessment.md" target="_blank">Build Your Own Assessment</a></li>
-</ul>
+    <h2 id="start">4. Start</h2>
+    <ul>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/Assessment.md" target="_blank">Start Assessment</a></li>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/Workout.md" target="_blank">Start Workout</a></li>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/CustomizedAssessment.md" target="_blank">Build Your Own Assessment</a></li>
+    </ul>
 
-<h2 id="feedback">5. Excluding Feedback</h2>
-<p>You have the ability to exclude specific exercise feedbacks. To do this, follow the example below:</p>
-<pre><code>
+    <h2 id="feedback">5. Excluding Feedback</h2>
+    <p>You have the ability to exclude specific exercise feedbacks. To do this, follow the example below:</p>
+    <pre><code>
 // Before starting any workout or assessment, call one of these functions:
 
 // The feedbacks to exclude
@@ -78,5 +172,8 @@ SMKitUIModel.setExcludedFeedbacks(excludedFeedbacks: excludedFeedbacks)
 
 // Exclude the feedback from the UI only
 SMKitUIModel.setFeedbacksUIToExclude(feedbacksUIToExclude: excludedFeedbacks)
-</code></pre>
-<p>Having issues? <a href="mailto:support@sency.ai">Contact us</a> and let us know what the problem is.</p>
+    </code></pre>
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <p>Having issues? <a href="mailto:support@sency.ai">Contact us</a> and let us know what the problem is.</p>
+</body>
+</html>
