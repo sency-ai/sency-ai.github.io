@@ -3,94 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sency.AI Documentation</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #ffffff;
             color: #333;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        aside {
-            width: 250px;
-            background-color: #f5f5f7;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: 100vh;
-            overflow-y: auto;
-            position: fixed;
         }
 
-        aside h2 {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        aside nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        aside nav ul li {
+        h1, h2, h3 {
+            color: #1c1c1e;
             margin-bottom: 10px;
         }
 
-        aside nav ul li a {
-            text-decoration: none;
-            color: #007aff;
-            font-size: 1rem;
-        }
-
-        aside nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .main-content {
-            margin-left: 270px;
-            padding: 40px;
-            width: calc(100% - 270px);
-        }
-
-        .main-content h1 {
-            font-size: 2.5rem;
-            color: #1c1c1e;
+        ul {
+            padding-left: 20px;
             margin-bottom: 20px;
         }
 
-        .main-content h2 {
-            font-size: 2rem;
-            color: #1c1c1e;
-            margin-top: 40px;
+        ul li {
+            margin-bottom: 8px;
         }
 
-        .main-content p {
-            margin: 20px 0;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            color: #333;
+        a {
+            color: #007aff;
+            text-decoration: none;
         }
 
-        .main-content img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin: 20px 0;
+        a:hover {
+            text-decoration: underline;
         }
 
-        .main-content ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin: 20px 0;
+        .code-container {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #2b2b2d;
         }
 
-        .main-content ul li {
-            margin: 10px 0;
-            font-size: 1.1rem;
-            color: #333;
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a3a3c;
+            padding: 8px 12px;
+            color: #ccc;
+            font-size: 0.85rem;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .copy-btn {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .copy-btn:hover {
+            color: #007aff;
+        }
+
+        code {
+            display: block;
+            padding: 15px 12px;
+            background-color: #2b2b2d;
+            color: #f8f8f2;
+            font-size: 0.9rem;
+            font-family: Consolas, "Courier New", monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         .note {
@@ -101,152 +85,132 @@
             font-size: 1rem;
             color: #333;
         }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px 0;
-            background-color: #007aff;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background-color: #005bb5;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f5f5f7;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f5f5f7;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        footer a {
-            color: #007aff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-container').querySelector('code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy code';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
+            document.body.removeChild(textArea);
+        }
+    </script>
 </head>
 <body>
-    <aside>
-        <h2>HOME</h2>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="loadContent('home', 'getting-started')">Getting Started</a></li>
-                <li><a href="#" onclick="loadContent('home', 'choose-your-platform')">Choose Your Platform</a></li>
-                <li><a href="#" onclick="loadContent('home', 'support-and-resources')">Support & Resources</a></li>
-                <li><a href="#" onclick="loadContent('home', 'faq')">FAQ</a></li>
-            </ul>
-        </nav>
-        <h2>SDK DOCUMENTATION</h2>
-        <nav>
-            <ul>
-                <li><a href="#ios" onclick="loadContent('ios')">iOS</a></li>
-                <li><a href="#android" onclick="loadContent('android')">Android</a></li>
-                <li><a href="#flutter" onclick="loadContent('flutter')">Flutter</a></li>
-                <li><a href="#reactnative" onclick="loadContent('react-native')">React Native</a></li>
-            </ul>
-        </nav>
-    </aside>
+    <h1>smkit-ui-ios-demo</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#inst">Installation</a></li>
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#conf">Configure</a></li>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#feedback">Excluding Feedback</a></li>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/DataTypes.md" target="_blank">Data</a></li>
+    </ul>
 
-    <div class="main-content" id="main-content">
-        <!-- Default home content here -->
+    <h2 id="inst">1. Installation</h2>
+    <h3>Cocoapods</h3>
+    <div class="code-container">
+        <div class="code-header">
+            <span>ruby</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy code</button>
+        </div>
+        <code>
+// [1] add the source to the top of your Podfile.
+source 'https://bitbucket.org/sencyai/ios_sdks_release.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+// [2] add the pod to your target
+target 'YourApp' do
+  use_frameworks!
+  pod 'SMKitUI'
+end
+
+// [3] add post_install hooks
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.5'
+    end
+  end
+end
+        </code>
     </div>
 
-    <footer>
-        <p>Thank you for choosing our Sency Motion Kit. We look forward to supporting your development and innovation efforts!</p>
-        <p><a href="https://www.sency.ai" target="_blank">Visit our Website</a> | <a href="mailto:support@sency.ai">Contact Support</a></p>
-    </footer>
+    <h3>SPM</h3>
+    <p>Coming soon</p>
 
-    <script>
-        let currentContent = ''; // To track the currently loaded content
-        
-        function loadContent(page, section = null) {
-        let contentUrl = '';
-        switch (page) {
-            case 'home':
-                contentUrl = 'home.html';
-                break;
-            case 'ios':
-                contentUrl = 'ios.html';
-                break;
-            case 'android':
-                contentUrl = 'android.html';
-                break;
-            case 'flutter':
-                contentUrl = 'flutter.html';
-                break;
-            case 'react-native':
-                contentUrl = 'react-native.html';
-                break;
-            default:
-                contentUrl = 'home.html';
-        }
+    <h2 id="setup">2. Setup</h2>
+    <p>Add camera permission request to <code>Info.plist</code></p>
+    <div class="code-container">
+        <div class="code-header">
+            <span>xml</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy code</button>
+        </div>
+        <code>
+<key>NSCameraUsageDescription</key>
+<string>Camera access is needed</string>
+        </code>
+    </div>
 
-        // If the current content is already loaded and we just need to jump to a section
-        if (currentContent === contentUrl) {
-            if (section) {
-                jumpToSection(section);
-            }
-            return;
-        }
+    <h2 id="conf">3. Configure</h2>
+    <div class="code-container">
+        <div class="code-header">
+            <span>swift</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy code</button>
+        </div>
+        <code>
+SMKitUIModel.configure(authKey: "YOUR_KEY") {
+    // The configuration was successful
+    // Your Code
+} onFailure: { error in
+    // The configuration failed with error
+    // Your Code
+}
+        </code>
+    </div>
+    <p>To reduce wait time we recommend to call <code>configure</code> on app launch.</p>
+    <p><strong>⚠️ SMKitUI will not work if you don't first call configure.</strong></p>
 
-        fetch(contentUrl)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('main-content').innerHTML = data;
-                currentContent = contentUrl; // Update the current content
-                if (section) {
-                    jumpToSection(section);
-                }
-            })
-            .catch(error => console.error('Error loading content:', error));
-    }
+    <h2 id="start">4. Start</h2>
+    <ul>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/Assessment.md" target="_blank">Start Assessment</a></li>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/Workout.md" target="_blank">Start Workout</a></li>
+        <li><a href="https://github.com/sency-ai/smkit-ui-ios-demo/blob/main/CustomizedAssessment.md" target="_blank">Build Your Own Assessment</a></li>
+    </ul>
 
-    function jumpToSection(section) {
-        const element = document.getElementById(section);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
+    <h2 id="feedback">5. Excluding Feedback</h2>
+    <p>You have the ability to exclude specific exercise feedbacks. To do this, follow the example below:</p>
+    <div class="code-container">
+        <div class="code-header">
+            <span>swift</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy code</button>
+        </div>
+        <code>
+// Before starting any workout or assessment, call one of these functions:
 
-    // Load home content by default on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        loadContent('home');
-    });
-    </script>
+// The feedbacks to exclude
+let excludedFeedbacks:[FormFeedbackTypeBr] = [.pushupKneesOnFloor]
+
+// Exclude the feedback from both data and UI
+SMKitUIModel.setExcludedFeedbacks(excludedFeedbacks: excludedFeedbacks)
+
+// Exclude the feedback from the UI only
+SMKitUIModel.setFeedbacksUIToExclude(feedbacksUIToExclude: excludedFeedbacks)
+        </code>
+    </div>
+    <p>Having issues? <a href="mailto:support@sency.ai">Contact us</a> and let us know what the problem is.</p>
 </body>
 </html>
