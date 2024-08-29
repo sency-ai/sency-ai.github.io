@@ -6,49 +6,97 @@
     <title>Sency.AI Documentation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1c1c1e;
+            color: #f1f1f1;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background: #004080;
-            color: #fff;
-            padding: 1rem 0;
+            background-color: #101010;
+            color: #f1f1f1;
+            padding: 2rem 0;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            color: #ffffff;
         }
 
         nav {
-            margin: 20px 0;
             text-align: center;
+            margin-top: 10px;
         }
 
         nav a {
-            color: #004080;
+            color: #a0a0a0;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom right, #1c1c1e, #2b2b2d);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: #d0d0d0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #0a84ff;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #0a84ff;
+            color: #0a84ff;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #0a84ff;
         }
 
         .content {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .content h2 {
-            color: #004080;
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
         .content img {
@@ -56,14 +104,17 @@
             height: auto;
             display: block;
             margin: 20px auto;
+            border-radius: 8px;
         }
 
         .content p, .content ul {
             margin: 20px 0;
+            color: #d0d0d0;
+            line-height: 1.6;
         }
 
         .content ul {
-            list-style-type: square;
+            list-style-type: disc;
             padding-left: 20px;
         }
 
@@ -78,30 +129,35 @@
         }
 
         table, th, td {
-            border: 1px solid #ccc;
+            border: 1px solid #444444;
         }
 
         th, td {
             padding: 12px;
             text-align: center;
+            color: #d0d0d0;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #2b2b2d;
         }
 
         footer {
-            background: #f8f8f8;
-            color: #555;
+            background-color: #101010;
+            color: #a0a0a0;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin-top: 20px;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid #444444;
         }
 
         footer a {
-            color: #004080;
+            color: #0a84ff;
             text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -115,6 +171,13 @@
             <a href="#faq">FAQ</a>
         </nav>
     </header>
+
+    <section class="hero">
+        <h2>Take The Lead With Precise Motion Tracking</h2>
+        <p>Empower your platform with Sency SDK: The most accessible AI technology to offer accurate real-time insights into user movements.</p>
+        <a href="#getting-started" class="btn">Get Started</a>
+        <a href="#learn-more" class="btn btn-secondary">Learn More</a>
+    </section>
 
     <div class="content">
         <h2>AI Human Motion Tracking</h2>
@@ -132,17 +195,9 @@
             <li><strong>Enhanced User Engagement:</strong> Improve health outcomes and increase retention and conversion rates with personalized exercise and health plans based on accurate, real-time data.</li>
         </ul>
 
-        <h2>SDK Features</h2>
-        <p>AI motion tracking by Sency is ideal for fitness, wellness, and health enterprises looking to revolutionize their digital platforms. At the heart of our offerings is the Sency SDK, a comprehensive suite that allows businesses to implement sophisticated motion tracking and analysis capabilities swiftly and effectively.</p>
-        <ul>
-            <li><strong>Initial Movement and Fitness Assessments:</strong> Get started with detailed evaluations.</li>
-            <li><strong>User Progress Evaluations:</strong> Track improvements with regular monthly assessments.</li>
-            <li><strong>Personalized Workout Plans:</strong> Offer tailored guidance and technique corrections.</li>
-        </ul>
-
         <h2 id="getting-started">Getting Started</h2>
-        <p>To get started <a href="https://www.sency.ai/pricing" target="_blank">Register</a> now a new client for free and get your demo access and your API client key.</p>
-        <p>Then, <a href="#choose-your-platform">choose</a> the most relevant SDK for you, make sure you meet the prerequisites, and follow the setup instructions to incorporate our tools into your project seamlessly.</p>
+        <p>To get started <a href="https://www.sency.ai/pricing" target="_blank" style="color: #0a84ff;">Register</a> now a new client for free and get your demo access and your API client key.</p>
+        <p>Then, <a href="#choose-your-platform" style="color: #0a84ff;">choose</a> the most relevant SDK for you, make sure you meet the prerequisites, and follow the setup instructions to incorporate our tools into your project seamlessly.</p>
 
         <h2 id="choose-your-platform">Choose Your Platform</h2>
         <h3>Branded Kit</h3>
@@ -161,22 +216,22 @@
             </tr>
             <tr>
                 <td><strong>iOS</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-ios-demo/tree/main" target="_blank">SMKitUI</a></td>
-                <td><a href="https://github.com/sency-ai/smkit-ios-demo/tree/main" target="_blank">SMKit</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-ui-ios-demo/tree/main" target="_blank" style="color: #0a84ff;">SMKitUI</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-ios-demo/tree/main" target="_blank" style="color: #0a84ff;">SMKit</a></td>
             </tr>
             <tr>
                 <td><strong>Android</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-android-demo" target="_blank">smkit-ui</a></td>
-                <td><a href="https://github.com/sency-ai/smkit-android-demo" target="_blank">smkit</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-ui-android-demo" target="_blank" style="color: #0a84ff;">smkit-ui</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-android-demo" target="_blank" style="color: #0a84ff;">smkit</a></td>
             </tr>
             <tr>
                 <td><strong>React Native</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-react-native-demo" target="_blank">react-native-smkit-ui</a></td>
-                <td><a href="https://github.com/sency-ai/smkit-react-native-demo" target="_blank">react-native-smkit</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-ui-react-native-demo" target="_blank" style="color: #0a84ff;">react-native-smkit-ui</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-react-native-demo" target="_blank" style="color: #0a84ff;">react-native-smkit</a></td>
             </tr>
             <tr>
                 <td><strong>Flutter</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-flutter-demo" target="_blank">flutter_smkit_ui</a></td>
+                <td><a href="https://github.com/sency-ai/smkit-ui-flutter-demo" target="_blank" style="color: #0a84ff;">flutter_smkit_ui</a></td>
                 <td>NA</td>
             </tr>
             <tr>
@@ -191,9 +246,18 @@
             </tr>
         </table>
 
-        <p>Your platform is missing? <a href="mailto:support@sency.ai">Let us know</a> and we'll get back to you with our plans as soon as we can.</p>
+        <p>Your platform is missing? <a href="mailto:support@sency.ai" style="color: #0a84ff;">Let us know</a> and we'll get back to you with our plans as soon as we can.</p>
 
         <h2 id="support-and-resources">Support and Resources</h2>
-        <p>For further assistance, refer to our comprehensive <a href="#faq">FAQ</a> or <a href="mailto:support@sency.ai">contact</a> our support team.</p>
+        <p>For further assistance, refer to our comprehensive <a href="#faq" style="color: #0a84ff;">FAQ</a> or <a href="mailto:support@sency.ai" style="color: #0a84ff;">contact</a> our support team.</p>
 
-        <h2 id="faq">FAQ</h2
+        <h2 id="faq">FAQ</h2>
+        <!-- Add FAQ content here -->
+
+    </div>
+
+    <footer>
+        <p>Thank you for choosing our Sency Motion Kit. We look forward to supporting your development and innovation efforts!</p>
+    </footer>
+</body>
+</html>
