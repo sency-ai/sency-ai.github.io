@@ -165,10 +165,10 @@
         <h2>HOME</h2>
         <nav>
             <ul>
-                <li><a href="#" onclick="loadContent('home')">Getting Started</a></li>
-                <li><a href="#" onclick="loadContent('home')">Choose Your Platform</a></li>
-                <li><a href="#" onclick="loadContent('home')">Support & Resources</a></li>
-                <li><a href="#" onclick="loadContent('home')">FAQ</a></li>
+                <li><a href="#" onclick="loadContent('home', 'getting-started')">Getting Started</a></li>
+                <li><a href="#" onclick="loadContent('home', 'choose-your-platform')">Choose Your Platform</a></li>
+                <li><a href="#" onclick="loadContent('home', 'support-and-resources')">Support & Resources</a></li>
+                <li><a href="#" onclick="loadContent('home', 'faq')">FAQ</a></li>
             </ul>
         </nav>
         <h2>SDK DOCUMENTATION</h2>
@@ -192,40 +192,59 @@
     </footer>
 
     <script>
-        function loadContent(page) {
-            let contentUrl = '';
-            switch (page) {
-                case 'home':
-                    contentUrl = 'home.html'; // Path to the iOS content file
-                    break;
-                case 'ios':
-                    contentUrl = 'ios.html'; // Path to the iOS content file
-                    break;
-                case 'android':
-                    contentUrl = 'ios.html'; // Path to the iOS content file
-                    break;
-                case 'flutter':
-                    contentUrl = 'ios.html'; // Path to the iOS content file
-                    break;
-                case 'react-native':
-                    contentUrl = 'ios.html'; // Path to the iOS content file
-                    break;
-                // Additional cases for other sections if needed
-                default:
-                    contentUrl = 'home.html'; // Path to the default home content (optional)
-            }
-
-            fetch(contentUrl)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('main-content').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading content:', error));
+        function loadContent(page, section = null) {
+        let contentUrl = '';
+        switch (page) {
+            case 'home':
+                contentUrl = 'home.html';
+                break;
+            case 'ios':
+                contentUrl = 'ios.html';
+                break;
+            case 'android':
+                contentUrl = 'android.html';
+                break;
+            case 'flutter':
+                contentUrl = 'flutter.html';
+                break;
+            case 'react-native':
+                contentUrl = 'react-native.html';
+                break;
+            default:
+                contentUrl = 'home.html';
         }
-        // Load home content by default on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadContent('home');
-        });
+
+        // If the current content is already loaded and we just need to jump to a section
+        if (currentContent === contentUrl) {
+            if (section) {
+                jumpToSection(section);
+            }
+            return;
+        }
+
+        fetch(contentUrl)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('main-content').innerHTML = data;
+                currentContent = contentUrl; // Update the current content
+                if (section) {
+                    jumpToSection(section);
+                }
+            })
+            .catch(error => console.error('Error loading content:', error));
+    }
+
+    function jumpToSection(section) {
+        const element = document.getElementById(section);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Load home content by default on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadContent('home');
+    });
     </script>
 </body>
 </html>
