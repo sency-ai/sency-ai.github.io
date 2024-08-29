@@ -49,6 +49,7 @@
         .code-header {
             display: flex;
             justify-content: space-between;
+            align-items: center; /* Ensure proper alignment */
             background-color: #3a3a3c;
             padding: 8px 12px;
             border-top-left-radius: 5px;
@@ -94,7 +95,7 @@
     </style>
     <script>
         function copyCode(button) {
-            const codeBlock = button.parentElement.nextElementSibling.textContent;
+            const codeBlock = button.closest('pre').querySelector('code').textContent;
             navigator.clipboard.writeText(codeBlock).then(() => {
                 button.textContent = 'Copied!';
                 setTimeout(() => {
@@ -105,7 +106,7 @@
     </script>
 </head>
 <body>
-    <h1>SDK Documentation - iOS</h1>
+    <h1>smkit-ui-ios-demo</h1>
     <h2>Table of Contents</h2>
     <ul>
         <li><a href="#inst">Installation</a></li>
