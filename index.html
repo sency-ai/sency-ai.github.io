@@ -228,6 +228,7 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('main-content').innerHTML = data;
+                bindCopyButtons(); // Rebind event listeners after content is loaded
                 currentContent = contentUrl; // Update the current content
                 if (section) {
                     jumpToSection(section);
@@ -241,6 +242,29 @@
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
+    }
+
+    function bindCopyButtons() {
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const codeBlock = button.closest('.code-container').querySelector('code');
+                const textArea = document.createElement('textarea');
+                textArea.value = codeBlock.innerText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = 'Copy code';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        });
     }
 
     // Load home content by default on page load
