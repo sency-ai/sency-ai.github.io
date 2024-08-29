@@ -251,101 +251,46 @@
         <h2>Documentation</h2>
         <nav>
             <ul>
-                <li><a href="#getting-started">Getting Started</a></li>
-                <li><a href="#choose-your-platform">Choose Your Platform</a></li>
-                <li><a href="#support-and-resources">Support & Resources</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#" onclick="loadContent('home')">Home</a></li>
+                <li><a href="#" onclick="loadContent('ios')">iOS</a></li>
+                <li><a href="#" onclick="loadContent('getting-started')">Getting Started</a></li>
+                <li><a href="#" onclick="loadContent('choose-your-platform')">Choose Your Platform</a></li>
+                <li><a href="#" onclick="loadContent('support-and-resources')">Support & Resources</a></li>
+                <li><a href="#" onclick="loadContent('faq')">FAQ</a></li>
             </ul>
         </nav>
     </aside>
 
-    <div class="main-content">
+    <div class="main-content" id="main-content">
+        <!-- Default home content here -->
         <h1>Welcome to Sency.AI</h1>
         <p>Empower your platform with Sency SDK: The most accessible AI technology to offer accurate real-time insights into user movements.</p>
-
-        <div class="note">
-            <strong>Note:</strong> The fastest way to get started with the SDK is by trying the most relevant platform kit for you.
-        </div>
-
-        <h2>AI Human Motion Tracking</h2>
-        <img src="https://raw.githubusercontent.com/sency-ai/sency-ai.github.io/main/Resources/sency-cover.png" alt="Cover Sency">
-
-        <h2>About Sency</h2>
-        <p>Sency is a trailblazer in the health and fitness industry, specializing in AI motion analysis technology that understands and enhances human movement through just a smartphone camera—no extra hardware needed. Our technology offers real-time guidance, personalized user journeys, and the benefits of personal coaching, empowering users to lead a more active, balanced, and healthy lifestyle.</p>
-        <p>Trusted by top brands across various sectors, Sency's solutions drive significant improvements in user engagement, satisfaction, and business outcomes, proving our leadership and expertise in motion tracking technology.</p>
-
-        <h2>Integration</h2>
-        <p>In just a few lines of code, you can leverage your app using cutting-edge AI-based technology.</p>
-        <p>Integrate SencyMotion SDKs to unlock a world of opportunities for deep insights and unprecedented data access. Our state-of-the-art AI models and seamless integration process elevate your app’s value through:</p>
-        <ul>
-            <li><strong>Data-driven Personalization:</strong> Tailor experiences with real-time interactions that boost user motivation and safety.</li>
-            <li><strong>Enhanced User Engagement:</strong> Improve health outcomes and increase retention and conversion rates with personalized exercise and health plans based on accurate, real-time data.</li>
-        </ul>
-
-        <h2 id="getting-started">Getting Started</h2>
-        <p>To get started <a href="https://www.sency.ai/pricing" target="_blank" style="color: #007aff;">Register</a> now a new client for free and get your demo access and your API client key.</p>
-        <p>Then, <a href="#choose-your-platform" style="color: #007aff;">choose</a> the most relevant SDK for you, make sure you meet the prerequisites, and follow the setup instructions to incorporate our tools into your project seamlessly.</p>
-
-        <h2 id="choose-your-platform">Choose Your Platform</h2>
-        <h3>Branded Kit</h3>
-        <p><strong>Who is this for?</strong> Ideal for stakeholders who need a quick, low-code solution.</p>
-        <p>The <em>Branded Kit</em> offers a rapid deployment model where the entire user interface and experience are ready to use. Seamlessly plug it as a <strong>white label</strong> with <strong>your brand</strong> in your app. This kit allows you to leverage our complete UI with minimal coding effort, enabling you to focus on swift implementation.</p>
-
-        <h3>Custom Kit</h3>
-        <p><strong>Who is this for?</strong> Best suited for developers looking to build and customize their own experiences.</p>
-        <p>The <em>Custom Kit</em> is designed for those who prefer a hands-on approach. It does not include any predefined UI, providing a clean slate for thorough customization and personalization. This option requires more coding but offers greater flexibility and control over the integration process.</p>
-
-        <table>
-            <tr>
-                <th>Platform</th>
-                <th>Branded Kit</th>
-                <th>Custom Kit</th>
-            </tr>
-            <tr>
-                <td><strong>iOS</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-ios-demo/tree/main" target="_blank" style="color: #007aff;">SMKitUI</a></td>
-                <td><a href="https://github.com/sency-ai/smkit-ios-demo/tree/main" target="_blank" style="color: #007aff;">SMKit</a></td>
-            </tr>
-            <tr>
-                <td><strong>Android</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-android-demo" target="_blank" style="color: #007aff;">smkit-ui</a></td>
-                <td><a href="https://github.com/sency-ai/smkit-android-demo" target="_blank" style="color: #007aff;">smkit</a></td>
-            </tr>
-            <tr>
-                <td><strong>React Native</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-react-native-demo" target="_blank" style="color: #007aff;">react-native-smkit-ui</a></td>
-                <td><a href="https://github.com/sency-ai/smkit-react-native-demo" target="_blank" style="color: #007aff;">react-native-smkit</a></td>
-            </tr>
-            <tr>
-                <td><strong>Flutter</strong></td>
-                <td><a href="https://github.com/sency-ai/smkit-ui-flutter-demo" target="_blank" style="color: #007aff;">flutter_smkit_ui</a></td>
-                <td>NA</td>
-            </tr>
-            <tr>
-                <td><strong>JavaScript</strong></td>
-                <td>NA</td>
-                <td>NA</td>
-            </tr>
-            <tr>
-                <td><strong>Unity</strong></td>
-                <td>NA</td>
-                <td>NA</td>
-            </tr>
-        </table>
-
-        <p>Your platform is missing? <a href="mailto:support@sency.ai" style="color: #007aff;">Let us know</a> and we'll get back to you with our plans as soon as we can.</p>
-
-        <h2 id="support-and-resources">Support and Resources</h2>
-        <p>For further assistance, refer to our comprehensive <a href="#faq" style="color: #007aff;">FAQ</a> or <a href="mailto:support@sency.ai" style="color: #007aff;">contact</a> our support team.</p>
-
-        <h2 id="faq">FAQ</h2>
-        <!-- Add FAQ content here -->
-
     </div>
 
     <footer>
         <p>Thank you for choosing our Sency Motion Kit. We look forward to supporting your development and innovation efforts!</p>
         <p><a href="https://www.sency.ai" target="_blank">Visit our Website</a> | <a href="mailto:support@sency.ai">Contact Support</a></p>
     </footer>
+
+    <script>
+        function loadContent(page) {
+            let contentUrl = '';
+            switch (page) {
+                case 'ios':
+                    contentUrl = 'ios.html'; // Path to the iOS content file
+                    break;
+                // Additional cases for other sections if needed
+                default:
+                    contentUrl = 'home.html'; // Path to the default home content (optional)
+            }
+
+            fetch(contentUrl)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
+    </script>
 </body>
 </html>
