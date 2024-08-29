@@ -162,15 +162,22 @@
 </head>
 <body>
     <aside>
-        <h2>Documentation</h2>
+        <h2>Info</h2>
         <nav>
             <ul>
-                <li><a href="#" onclick="loadContent('home')">Home</a></li>
-                <li><a href="#" onclick="loadContent('ios')">iOS</a></li>
-                <li><a href="#" onclick="loadContent('getting-started')">Getting Started</a></li>
-                <li><a href="#" onclick="loadContent('choose-your-platform')">Choose Your Platform</a></li>
-                <li><a href="#" onclick="loadContent('support-and-resources')">Support & Resources</a></li>
-                <li><a href="#" onclick="loadContent('faq')">FAQ</a></li>
+                <li><a href="#" onclick="loadContent('home')">Getting Started</a></li>
+                <li><a href="#" onclick="loadContent('home')">Choose Your Platform</a></li>
+                <li><a href="#" onclick="loadContent('home')">Support & Resources</a></li>
+                <li><a href="#" onclick="loadContent('home')">FAQ</a></li>
+            </ul>
+        </nav>
+        <h2>SDK DOCUMENTATION</h2>
+        <nav>
+            <ul>
+                <li><a href="#ios" onclick="loadContent('ios')">iOS</a></li>
+                <li><a href="#android" onclick="loadContent('android')">Android</a></li>
+                <li><a href="#flutter" onclick="loadContent('flutter')">Flutter</a></li>
+                <li><a href="#reactnative" onclick="loadContent('react-native')">React Native</a></li>
             </ul>
         </nav>
     </aside>
@@ -188,7 +195,19 @@
         function loadContent(page) {
             let contentUrl = '';
             switch (page) {
+                case 'home':
+                    contentUrl = 'home.html'; // Path to the iOS content file
+                    break;
                 case 'ios':
+                    contentUrl = 'ios.html'; // Path to the iOS content file
+                    break;
+                case 'android':
+                    contentUrl = 'ios.html'; // Path to the iOS content file
+                    break;
+                case 'flutter':
+                    contentUrl = 'ios.html'; // Path to the iOS content file
+                    break;
+                case 'react-native':
                     contentUrl = 'ios.html'; // Path to the iOS content file
                     break;
                 // Additional cases for other sections if needed
@@ -203,6 +222,10 @@
                 })
                 .catch(error => console.error('Error loading content:', error));
         }
+        // Load home content by default on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadContent('home');
+        });
     </script>
 </body>
 </html>
