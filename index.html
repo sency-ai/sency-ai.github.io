@@ -192,6 +192,8 @@
     </footer>
 
     <script>
+        let currentContent = ''; // To track the currently loaded content
+        
         function loadContent(page, section = null) {
         let contentUrl = '';
         switch (page) {
